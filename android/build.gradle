@@ -1,0 +1,44 @@
+group 'com.ectcm.baidu_map_plugin'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+            jni.srcDirs = []    //disable automatic ndk-build
+        }
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+//        checkReleaseBuilds false
+    }
+}
+dependencies {
+    compile files('libs/BaiduLBS_Android.jar')
+//    compile files('flutter_lib/flutter.jar')
+}

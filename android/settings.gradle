@@ -1,0 +1,2 @@
+include ':flutter_lib'
+rootProject.name = 'baidu_map_plugin'
